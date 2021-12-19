@@ -1,0 +1,34 @@
+{block title}New{/block}
+
+{block content}
+
+{var $today = date("Y-m-d");}
+
+<div class="add_new">
+
+    <form n:name=newForm class=form>
+        <p><label n:name=name><input n:name=name size=20 placeholder="Název příspěvku" class="name" id="postName"></label>
+        <p><label n:name=content><textarea n:name=content name="content" id="postContent"></textarea></label><br>
+        <p><label n:name=dateTest><input n:name=dateTest value="{$today}" class="date"></label>
+        <p><label n:name=autor><input n:name=autor class="autor" readonly></label>
+        <p><input n:name=send class="btn btn-default sbmtBtn" id="newSbmtBtn">
+        <a n:href="Admin:dashboard" class="cancel">Zrušit</a>
+    </form>
+
+</div>
+
+<script src="../ckeditor/ckeditor.js"></script>
+<script> 
+
+    CKEDITOR.replace('content');
+
+    for (var i in CKEDITOR.instances) {
+        CKEDITOR.instances[i].on('change', function() { 
+            CKEDITOR.instances[i].updateElement();
+        });
+    }
+
+</script>
+<script src="../js/nonclickable_new_btn.js"></script>
+
+{/block}

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Desetiminutovka{ifset title} | {include title|stripHtml}{/ifset}</title>
+
+    <!-- link for my custom styles -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../../css/style.css">
+    <!-- link for cdnjs.com - FONTS AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+	<header>
+        <div class="row">
+            <div class="logo">
+                <img src="../img/logo_desetiminutovka.png">
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a n:href="Admin:dashboard">Přehled příspěvků</a></li>
+                    <li><a n:href="Admin:profile">Můj profil</a></li>
+                    <li><a n:href="Accounts:accountManager">Správa účtů</a></li>
+                    <li><a n:href="Homepage:out">Odhlásit</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="row">
+            <div class="main_content_row">
+	            {include content}
+            </div>
+        </div>
+    </main>
+	<footer>
+	    2021 | Desetiminutovka.cz
+	</footer>
+
+
+	{block scripts}
+    <script src="../js/more_options.js"></script>
+	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+	{/block}
+</body>
+</html>

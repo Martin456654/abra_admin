@@ -1,0 +1,15 @@
+{block content}
+
+<div class="loginForm">
+    <h1 n:block=title>Přihlášení</h1>
+
+    <form n:name=signInForm class=form>
+            <input n:name=username size=20 placeholder="Uživatelské jméno" autofocus>
+            <input n:name=password size=20 placeholder="Heslo">
+            <p><input n:name=send class="btn btn-default">
+    </form>
+
+    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+</div>
+
+{/block}

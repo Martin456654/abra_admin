@@ -1,0 +1,22 @@
+{block title}Edit authorization{/block}
+
+{block content}
+
+<div class="editAuthorization">
+
+    Uživatelské jméno - {$account->username}<br>
+    Přezdívka - {$account->nickname}<br>
+    Email - {$account->email}<br>
+
+    {var $authorization = ucfirst($account->authorization)}
+    Autorizace: {$authorization}<br>
+
+    <form n:name=editAuthorizationForm>
+        <input n:name=id value="{$account->id}" style="display: none;" readonly>
+        <select n:name=authorization></select>
+        <input n:name=send class="btn btn-default submit">
+    </form>
+
+</div>
+
+{/block}

@@ -1,0 +1,34 @@
+{block title}Edit{/block}
+
+{block content}
+
+<div class="edit_form">
+    <h1>Upravit příspěvek</h1>
+    
+    <hr>
+
+        <form n:name=editingForm class=form>
+            <input n:name=name size=20 placeholder="Název příspěvku" value="{$post->name}" id="postName">
+            <textarea n:name=content name="content" id="postContent"></textarea><br>
+            <input n:name=dateTest value="{$post->dateTest|date:"Y-m-d"}" id="postDate">
+            <input n:name=autor value="{$post->autor}">
+            <input n:name=send class="btn btn-default submit" id="editBtn">
+            <a n:href="Admin:dashboard" class="cancel">Zrušit</a><br>
+        </form>
+
+</div>
+
+<script src="../../ckeditor/ckeditor.js"></script>
+<script> 
+
+    CKEDITOR.replace('content');
+
+    for (var i in CKEDITOR.instances) {
+        CKEDITOR.instances[i].on('change', function() { 
+            CKEDITOR.instances[i].updateElement();
+        });
+    }
+</script>
+<script src="../../js/nonclickable_edit_btn.js"></script>
+
+{/block}

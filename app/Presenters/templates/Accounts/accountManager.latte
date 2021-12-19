@@ -1,0 +1,32 @@
+{block title}Account Manager{/block}
+
+{block content}
+
+{var $me = $user->getIdentity()}
+
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type" style="text-align: center; margin-top: 20px; margin-bottom: 20px">{$flash->message}</div>
+
+<div class="accountManager">
+
+{foreach $accounts as $account}
+
+    <div class="userWrapper">
+        <div class="accountInfo">
+            Přezdívka - <b>{$account->nickname}</b><br>
+            Uživatelské jméno - <b>{$account->username}</b><br>
+            Email - <b>{$account->email}</b><br>
+            Autorizace - <b>{$account->authorization}</b><br>
+        </div>
+
+        <div class="contactAndEdit">
+            {var $authorization = $me->authorization}
+            <a href="mailto:{$me->email}?subject=Kontakt přes Desetiminutovku&body=Dobrý den/Ahoj,%0D%0Ajsem {$me->authorization} na stránce Desetiminutovka.cz a kontaktuji tě/vás kvůli.....%0D%0ADěkuji a přeji hezký den, {$me->nickname}.">Kontaktovat</a><br>
+            <a n:href="Accounts:editAuthorization $account->id">Editovat práva</a><br>
+        </div>
+    </div>
+
+{/foreach}
+
+</div>
+
+{/block}

@@ -1,0 +1,29 @@
+{block title}Profile{/block}
+
+{block content}
+
+{var $me = $user->getIdentity()}
+
+<div class="profile">
+    <img src="../img/avatar.png">
+    <h1>{$me->nickname}</h1>
+    <span class="username">{$me->username}</span>
+    <span class="email">{$me->email}<span><br>
+
+    <div id="changePassBtn"><a><i class="fas fa-arrow-down"></i>&nbsp;&nbsp;Změnit heslo&nbsp;&nbsp;<i class="fas fa-arrow-down"></i></a></div>
+
+    <div id="changePassWrap">
+        <form n:name=changePassForm>
+            <input n:name=oldPassword placeholder="Aktuální heslo">
+            <input n:name=newPassword placeholder="Nové heslo">
+            <input n:name=newPasswordRepeat placeholder="Nové heslo znovu">
+            <input n:name=send class="btn btn-default">
+        </form>
+    </div>
+
+    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type" style="text-align: center; margin-top: 20px;">{$flash->message}</div>
+</div>
+
+<script src="../js/new_pass_window.js"></script>
+
+{/block}

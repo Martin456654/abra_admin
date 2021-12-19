@@ -1,0 +1,5 @@
+services:
+	- App\Router\RouterFactory::createRouter
+	- App\Model\DbManager
+	- MyAuthenticator
+	- MyAuthorizator

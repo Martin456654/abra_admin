@@ -1,0 +1,31 @@
+{block title}Delete{/block}
+
+{block content}
+
+    {foreach $posts as $post}
+
+    <div class='delete'>
+        <h1>Opravdu si přejete vymazat z databáze tento příspěvek?</h1>
+
+        <hr>
+
+        <h3>{$post->name}</h3>
+        <p class="content"><b>{$post->content|noescape}</b></p><br>
+        <p>Datum - <b>{$post->dateTest|date:"d.m.Y"}</b></p><br>
+        <p>Autor - <b>{ucfirst($post->autor)}</b></p><br>
+
+        <hr>
+
+        {* <form n:name=deletingForm class=form>
+            <input n:name=send class="btn btn-default sbmtBtn">
+        </form> *}
+        {var $delete = true}
+        <a n:href="Admin:deleting $post->id, $delete" class="sbmtBtn">Smazat</a>
+        <a n:href='Admin:dashboard' class='cancel'>Zrušit</a>
+    </div>
+
+    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type" style="text-align: center; padding-top: 20px;">{$flash->message}</div>
+
+    {/foreach}
+
+{/block}
